@@ -2,6 +2,27 @@
 This is an unofficial extension of TigerVNC. This script allow using the xstartup file to setup a vnc session.
 Xvnc-cli script is similar to the old vncserver program in [TigerVNC](https://github.com/TigerVNC/tigervnc).
 
+# Build and installation
+
+To build this script run the make command in the directory.
+
+```sh
+$ make
+```
+
+
+To install you can run this command. It will install the script in /usr/local/bin
+```sh
+$ sudo make install
+```
+
+This is recommanded to install the script in the same prefix as TigerVNC. The install prefix
+can be specified as an environment variable. The following command need to be run as root. This
+will install the script in /usr/bin
+```sh
+$ PREFIX=/usr make install
+```
+
 # Globals options
 
 ```
