@@ -16,9 +16,8 @@ To install you can run this command. It will install the script in /usr/local/bi
 $ sudo make install
 ```
 
-This is recommanded to install the script in the same prefix as TigerVNC. The install prefix
-can be specified as an environment variable. The following command need to be run as root. This
-will install the script in /usr/bin
+You can specify an alternative prefix when running `make` through environment variable. The following
+command will install Xvnc-cli in /usr/bin.
 ```sh
 $ PREFIX=/usr make install
 ```

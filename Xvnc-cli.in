@@ -296,7 +296,7 @@ if ($useXStartup) {
 push(@cmd, '--');
 
 # We build up our Xvnc command with options
-push(@cmd, "@CMAKE_INSTALL_FULL_BINDIR@/Xvnc", ":$displayNumber");
+push(@cmd, &GetProgramPath("Xvnc"), ":$displayNumber");
 
 foreach my $k (sort keys %config) {
   push(@cmd, "-$k");
@@ -506,6 +506,17 @@ sub GetDisplayNumber
     }
 
     die "$prog: no free display number on $host.\n";
+}
+
+sub GetProgramPath
+{
+    my ($cmd) = @_;
+    for (split(/:/,$ENV{PATH})) {
+      if (-x "$_/$cmd") {
+        return "$_/$cmd";
+      }
+    }
+    die "$prog: couldn't find \"$cmd\" on your PATH.\n";
 }
 
 #
